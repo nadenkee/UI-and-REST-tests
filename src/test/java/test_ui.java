@@ -10,12 +10,12 @@ import static java.lang.System.setProperty;
 
 
 public class test_ui {
-    public static final String LOGIN = "nadenkee";
-    public static final String PASS = "1q2w3e";
-    public static final String MUSIC_NAME = "circles";
-    public static final String ALBUM_NAME = "ajr";
-    public static final String WEB_ADDR = "https://www.last.fm/ru/";
-    public static final String WEB_ADDR_LOGOUT = "https://www.last.fm/ru/logout";
+    private static final String LOGIN = "nadenkee";
+    private static final String PASS = "1q2w3e";
+    private static final String MUSIC_NAME = "circles";
+    private static final String ALBUM_NAME = "ajr";
+    private static final String WEB_ADDR = "https://www.last.fm/ru/";
+    private static final String WEB_ADDR_LOGOUT = "https://www.last.fm/ru/logout";
 
 
     @BeforeClass
@@ -38,19 +38,19 @@ public class test_ui {
         driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/nav/div/ul/li[2]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"id_username\"]")).sendKeys(LOGIN);
         driver.findElement(By.xpath("//*[@id=\"id_password\"]")).sendKeys(PASS);
-        driver.findElement(By.xpath("//*[@id=\"login\"]/div[3]/div/button")).click();
+        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[3]/div[2]/div/div/form/div[3]/div/button")).click();
         // 3 - Perform searches
         //composition named MUSIC_NAME
         driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/nav/div/a[1]")).click();
-        driver.findElement(By.xpath("//*[@id=\"masthead-search-field\"]")).sendKeys(MUSIC_NAME);
-        driver.findElement(By.xpath("//*[@id=\"masthead-search\"]/div/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"site-search\"]")).sendKeys(MUSIC_NAME);
+        driver.findElement(By.xpath("//*[@id=\"mantle_skin\"]/div[4]/div/div[1]/form/button")).click();
         //only tracks, not albums nor artists
-        driver.findElement(By.cssSelector("#mantle_skin > div.content-top > div > div.container.content-top-lower > nav > ul > li.navlist-item.secondary-nav-item.secondary-nav-item--tracks")).click();
+        driver.findElement(By.xpath("//*[@id=\"mantle_skin\"]/div[3]/div/div[3]/nav/ul/li[4]/a")).click();
         //albums named ALBUM_NAME
         driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/nav/div/a[1]")).click();
-        driver.findElement(By.xpath("//*[@id=\"masthead-search-field\"]")).sendKeys(ALBUM_NAME);
-        driver.findElement(By.cssSelector("#mantle_skin > div.content-top > div > div.container.content-top-lower > nav > ul > li.navlist-item.secondary-nav-item.secondary-nav-item--albums")).click();
-        //only tracks, not compositions nor artists
+        driver.findElement(By.xpath("//*[@id=\"site-search\"]")).sendKeys(ALBUM_NAME);
+        driver.findElement(By.xpath("//*[@id=\"mantle_skin\"]/div[4]/div/div[1]/form/button")).click();
+        //only albums, not compositions nor artists
         driver.findElement(By.xpath("//*[@id=\"mantle_skin\"]/div[3]/div/div[3]/nav/ul/li[3]")).click();
         //4 - Perfom logout
         driver.navigate().to(WEB_ADDR_LOGOUT);

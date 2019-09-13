@@ -1,5 +1,12 @@
 import io.restassured.RestAssured;
+import io.restassured.config.LogConfig;
+import org.seleniumhq.jetty9.io.WriterOutputStream;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
 
 
 public class test_rest {
@@ -7,44 +14,56 @@ public class test_rest {
     private static final String PASS = "1q2w3e";
     private static final String MUSIC_NAME = "circles";
     private static final String ALBUM_NAME = "ajr";
-    private static final String WEB_ADDR = "https://www.last.fm/ru/";
     private static final String WEB_ADDR_LOGIN = "https://secure.last.fm/ru/login";
     private static final String WEB_ADDR_LOGOUT = "https://www.last.fm/ru/logout";
 
+    private FileWriter report;
+
     @Test
-    public void loginTest() {
+    public void loginTest() throws IOException {
         RestAssured
-                .given().auth().basic(LOGIN, PASS).expect().statusCode(200)
-                .when().get(WEB_ADDR_LOGIN)
-                .then().log().status();
+                .given()
+                    .auth().basic(LOGIN, PASS)
+                .when()
+                    .get(WEB_ADDR_LOGIN)
+                .then()
+                    .log().status();
     }
 
     @Test
-    public void searchTest() {
+    public void searchTest() throws IOException {
         RestAssured
                 .given()
-                .expect().statusCode(200)
+                    .expect().statusCode(200)
                 .when()
-                .get(WEB_ADDR+"search/tracks?q="+ MUSIC_NAME)
+                    .get("/tracks?q="+ MUSIC_NAME)
                 .then()
-                .log().status();
-
+                    .log().headers();
         RestAssured
                 .given()
-                .expect().statusCode(200)
+                    .expect().statusCode(200)
                 .when()
-                .get( WEB_ADDR+"search/albums?q="+ALBUM_NAME)
+                    .get( "/albums?q="+ALBUM_NAME)
                 .then()
-                .log().status();
+                    .log().headers();
     }
 
     @Test
-    public void logoutTest() {
+    public void logoutTest() throws IOException {
         RestAssured
                 .given()
                 .when()
                 .get(WEB_ADDR_LOGOUT)
                 .then()
                 .log().status();
+    }
+
+
+    @BeforeClass
+    public void init() throws IOException {
+        RestAssured.baseURI = "https://www.last.fm/ru/search/";
+        report = new FileWriter("report.txt", true);
+        PrintStream printStream = new PrintStream(new WriterOutputStream(report), true);
+        RestAssured.config = RestAssured.config().logConfig(LogConfig.logConfig().defaultStream(printStream));
     }
 }
