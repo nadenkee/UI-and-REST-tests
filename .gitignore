@@ -1,0 +1,8 @@
+.idea/
+target/
+homeworks/Tasks.java
+
+*.iml
+/**/target/
+/*.iml
+/build
