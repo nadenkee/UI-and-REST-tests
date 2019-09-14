@@ -1,0 +1,95 @@
+﻿
+E:\IDEAD>mvn clean install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< nadenkee:testTaskForJob >-----------------------
+[INFO] Building testTaskForJob 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ testTaskForJob ---
+[INFO] Deleting E:\IDEAD\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ testTaskFo
+rJob ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ testTaskForJob
+---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ te
+stTaskForJob ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory E:\IDEAD\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ testTas
+kForJob ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding Cp1251, i.e. b
+uild is platform dependent!
+[INFO] Compiling 2 source files to E:\IDEAD\target\test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ testTaskForJob ---
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ testTaskForJob ---
+[INFO] Building jar: E:\IDEAD\target\testTaskForJob-1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ testTaskForJob -
+--
+[INFO] Installing E:\IDEAD\target\testTaskForJob-1.0-SNAPSHOT.jar to C:\Users\Ва
+рвара\.m2\repository\nadenkee\testTaskForJob\1.0-SNAPSHOT\testTaskForJob-1.0-SNA
+PSHOT.jar
+[INFO] Installing E:\IDEAD\pom.xml to C:\Users\Варвара\.m2\repository\nadenkee\t
+estTaskForJob\1.0-SNAPSHOT\testTaskForJob-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.047 s
+[INFO] Finished at: 2019-09-14T15:01:46+03:00
+[INFO] ------------------------------------------------------------------------
+"cmd" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+E:\IDEAD>mvn test
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< nadenkee:testTaskForJob >-----------------------
+[INFO] Building testTaskForJob 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ testTaskFo
+rJob ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ testTaskForJob
+---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ te
+stTaskForJob ---
+[WARNING] Using platform encoding (Cp1251 actually) to copy filtered resources,
+i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory E:\IDEAD\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ testTas
+kForJob ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ testTaskForJob ---
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.359 s
+[INFO] Finished at: 2019-09-14T15:06:10+03:00
+[INFO] ------------------------------------------------------------------------
+"cmd" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+E:\IDEAD>
